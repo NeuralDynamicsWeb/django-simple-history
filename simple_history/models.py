@@ -596,6 +596,9 @@ def transform_field(field):
             field.__class__ = models.CharField
         else:
             field.__class__ = models.TextField
+    elif isinstance(field, models.CharField):
+        # TODO Add functionality to all Django 'primitives'
+        field.__class__ = models.CharField
 
     # Historical instance shouldn't change create/update timestamps
     field.auto_now = False
